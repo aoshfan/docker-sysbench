@@ -1,3 +1,3 @@
 # docker-sysbench
-sysbench version: 1.0.20  
-base image: debian: 10.7-slim
+Sysbench version: **1.0.20**  
+Base image: **debian:10.7-slim**
