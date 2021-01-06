@@ -1,4 +1,4 @@
-Sysbench + Mysql client
+Sysbench + Mysql Client
 
 Sysbench: 1.0.20
 
