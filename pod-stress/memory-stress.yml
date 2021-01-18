@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mem-demo
+  namespace: test 
+spec:
+  containers:
+  - name: cpu-demo-ctr
+    image: vish/stress
+    resources:
+      limits:
+        memory: "100Mi"
+      requests:
+        memory: "1Mi"
+    args:
+    - -mem-total
+    - "9000000" 
+    - -mem-alloc-size
+    - "1000000"
+
+# Allocating "9M" memory, in "1M" chunks, with a 1ms sleep between allocations
+# Allocated "9M" memory
