@@ -6,17 +6,28 @@ metadata:
 spec:
   containers:
   - name: cpu-demo-ctr
-    image: vish/stress
+    image: aoshfan/pod-stress:1.0 
     resources:
       limits:
-        memory: "100Mi"
+        memory: "10Mi"
       requests:
         memory: "1Mi"
     args:
     - -mem-total
-    - "9000000" 
+    - "1000000000"
     - -mem-alloc-size
-    - "1000000"
+    - "1"
+    lifecycle:
+      preStop:
+        exec:
+          command:
+            - /bin/sh
+            - -c
+            - /bin/sleep 10 && echo "AFTER SLEEP" >> /proc/1/fd/1
 
 # Allocating "9M" memory, in "1M" chunks, with a 1ms sleep between allocations
 # Allocated "9M" memory
+# 100M 100000000
+# 1G 1000000000
+
+# If use above, it take around 10 minute to get OOM.
